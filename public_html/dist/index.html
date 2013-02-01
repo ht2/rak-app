@@ -21,7 +21,7 @@
         
         <div class='container-fluid'>
             
-            <div id="objectsCont">
+            <div id="objectsCont" data-bind="visible:show">
                 <h3>Objects</h3>
 
                 <form data-bind="submit: addObj">
@@ -38,6 +38,11 @@
                     </li>
                 </ul>
             </div>
+            
+            <div id="peopleCont" data-bind="visible:show">
+                <h3>People</h3>
+            </div>
+            
         </div>
     </body>
 </html>
