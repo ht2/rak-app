@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script data-main="js/app.js" src="js/require.js"></script>
+        
+        <link type="text/css" rel="stylesheet" href="css/bootstrap/css/bootstrap.css" />
+        <link type="text/css" rel="stylesheet" href="css/bootstrap/css/bootstrap-responsive.css" />
+        
+    </head>
+    <body>
+        <div class="navbar" id="navbar">
+            <div class="navbar-inner">                
+                <ul class="nav" data-bind="foreach: links">
+                    <li data-bind="click: $parent.setLink, css: { active: route == $parent.currentRoute() }"><a data-bind='attr: { href: route }, html: name'></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class='container-fluid'>
+            
+            <div id="objectsCont" data-bind="visible:show">
+                <h3>Objects</h3>
+
+                <form data-bind="submit: addObj">
+                    Add object: <input data-bind="value: newObjTitle, valueUpdate:'afterkeydown'" placeholder="Create a new object" />                
+
+                    <button data-bind='visible: hasTitle()' type="submit">Add</button>
+                    <span data-bind='visible: !hasTitle()'>Please enter a title</span>
+                </form>
+
+                <ul data-bind="foreach: objs, visible: objs().length > 0">
+                    <li>
+                        <span data-bind="html: title"></span>
+                        <a href="#" data-bind="click: $parent.removeObj">Delete</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="peopleCont" data-bind="visible:show">
+                <h3>People</h3>
+            </div>
+            
+        </div>
+    </body>
+</html>
